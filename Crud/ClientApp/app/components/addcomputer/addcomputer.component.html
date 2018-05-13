@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>JC Computers</title>
+</head>
+<body>
+
+    <h1>{{title}}</h1>
+    <h3>Computer</h3>
+
+    <hr />
+
+    <form [formGroup]="computerForm" (ngSubmit)="save()" #formDir="ngForm" novalidate>
+
+        <div class="form-group row">
+            <label class=" control-label col-md-12" for="Brand">Brand</label>
+            <div class="col-md-4">
+                <input class="form-control" type="text" formControlName="brand">
+            </div>
+
+            <span class="text-danger" *ngIf="computerForm.hasError('required', 'brand') && formDir.submitted">
+                Brand is required.
+            </span>
+        </div>
+
+        <div class="form-group row">
+            <label class=" control-label col-md-12" for="Model">Model</label>
+            <div class="col-md-4">
+                <input class="form-control" type="text" formControlName="model">
+            </div>
+
+            <span class="text-danger" *ngIf="computerForm.hasError('required', 'model') && formDir.submitted">
+                Model is required.
+            </span>
+        </div>
+
+        <div class="form-group row">
+            <label class=" control-label col-md-12" for="Mother Board">Mother Board</label>
+            <div class="col-md-4">
+                <input class="form-control" type="text" formControlName="motherBoard">
+            </div>
+
+            <span class="text-danger" *ngIf="computerForm.hasError('required', 'motherBoard') && formDir.submitted">
+                Mother Board is required.
+            </span>
+        </div>
+
+        <div class="form-group row">
+            <label class=" control-label col-md-12" for="RAM">RAM</label>
+            <div class="col-md-4">
+                <input class="form-control" type="text" formControlName="ram">
+            </div>
+
+            <span class="text-danger" *ngIf="computerForm.hasError('required', 'ram') && formDir.submitted">
+                RAM is required.
+            </span>
+        </div>
+
+        <div class="form-group row">
+            <label class=" control-label col-md-12" for="HD">HD</label>
+            <div class="col-md-4">
+                <input class="form-control" type="text" formControlName="hd">
+            </div>
+
+            <span class="text-danger" *ngIf="computerForm.hasError('required', 'hd') && formDir.submitted">
+                HD is required.
+            </span>
+        </div>
+
+        <div class="form-group row">
+            <label class=" control-label col-md-12" for="CPU">CPU</label>
+            <div class="col-md-4">
+                <input class="form-control" type="text" formControlName="cpu">
+            </div>
+
+            <span class="text-danger" *ngIf="computerForm.hasError('required', 'cpu') && formDir.submitted">
+                CPU is required.
+            </span>
+        </div>
+
+        <div class="form-group row">
+            <label class=" control-label col-md-12" for="Image">Image</label>
+            <div class="col-md-4">
+                <input class="form-control" type="text" formControlName="image">
+            </div>
+
+            <span class="text-danger" *ngIf="computerForm.hasError('required', 'image') && formDir.submitted">
+                Image is required.
+            </span>
+        </div>
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-default">Save</button>
+            <button class="btn" (click)="cancel()">Cancel</button>
+        </div>
+
+    </form>
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+﻿<h1>Computers in stock</h1>
+
+<p *ngIf="!comList"><em>Loading...</em></p>
+
+<a [routerLink]="['/register-computer']">
+    <span class='glyphicon glyphicon-plus'></span> Add New
+</a>
+
+<table class='table' *ngIf="comList">
+    <thead>
+        <tr>
+            <th>Image</th>
+            <th>Brand</th>
+            <th>Model</th>
+            <th>Mother Board</th>
+            <th>RAM</th>
+            <th>HD</th>
+            <th>CPU</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr *ngFor="let com of comList">
+            <td>{{ com.image }}</td>
+            <td>{{ com.brand }}</td>
+            <td>{{ com.model }}</td>
+            <td>{{ com.motherBoard }}</td>
+            <td>{{ com.ram }}</td>
+            <td>{{ com.hd }}</td>
+            <td>{{ com.cpu }} GHz</td>
+            <td>
+            <td>
+                <a [routerLink]="['/computer/edit/', com.id]">
+                    <span class='glyphicon glyphicon-pencil'></span> Edit
+                </a> |
+                <a [routerLink]="" (click)="delete(com.id)">
+                    <span class='glyphicon glyphicon-remove'></span> Delete
+                </a>
+            </td>
+        </tr>
+    </tbody>
+
+</table>

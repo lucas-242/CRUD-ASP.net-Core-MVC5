@@ -1,0 +1,103 @@
+/* Create the table */
+Create table computer(      
+
+    computerId int IDENTITY(1,1) NOT NULL,      
+    brand varchar(255) NOT NULL,   
+    model varchar(255) NOT NULL,
+    motherBoard varchar(255) NOT NULL,  
+    ram varchar(20) NOT NULL,
+    hd varchar(255) NOT NULL,  
+    cpu float(1) NOT NULL,  
+    image varchar(255) NOT NULL,      
+
+)
+
+
+/* Create the procedure to add a new computer */
+Create procedure spNewComputer         
+
+(        
+
+    @brand VARCHAR(255),         
+    @model VARCHAR(255),        
+    @motherBoard VARCHAR(255),        
+    @ram VARCHAR(20),
+    @hd VARCHAR(255),
+    @cpu FLOAT(1),
+    @image VARCHAR(255)
+
+)        
+
+as         
+
+Begin         
+
+    Insert into computer (brand, model, motherBoard, ram, hd, cpu, image)         
+    Values (@brand, @model, @motherBoard, @ram, @hd, @cpu, @image)         
+
+End
+
+
+/* Create the procedure to update a computer */
+Create procedure spUpdateComputer        
+
+(        
+
+	@comId INTEGER ,      
+	@brand VARCHAR(255),         
+	@model VARCHAR(255),        
+	@motherBoard VARCHAR(255),        
+	@ram VARCHAR(20),
+	@hd VARCHAR(255),
+	@cpu DECIMAL(1,1),
+	@image VARCHAR(255)     
+
+)        
+
+as        
+
+begin        
+
+   Update computer         
+   
+   set
+   brand=@brand,
+   model=@model,
+   motherBoard=@motherBoard,
+   ram=@ram,
+   hd=@hd,
+   cpu=@cpu,
+   image=@image      
+   where computerId=@comId        
+
+End
+
+
+/* Create the procedure to delete a computer */
+Create procedure spDeleteComputer      
+
+(        
+
+   @comId int        
+
+)        
+
+as         
+
+begin        
+
+   Delete from computer where computerId=@comId        
+
+End
+
+
+/* Create the procedure to get all computers */
+Create procedure spGetAllComputer      
+
+as      
+
+Begin      
+
+    select * from computer order by computerId      
+
+End
